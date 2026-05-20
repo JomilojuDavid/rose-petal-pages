@@ -21,7 +21,22 @@ function VoiceBubble({
 }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(note.duration);
   const isPlaying = playingId === note.id;
+
+  useEffect(() => {
+    const a = audioRef.current;
+    if (!a) return;
+    const onMeta = () => {
+      if (a.duration && isFinite(a.duration)) {
+        const m = Math.floor(a.duration / 60);
+        const s = Math.floor(a.duration % 60).toString().padStart(2, "0");
+        setDuration(`${m}:${s}`);
+      }
+    };
+    a.addEventListener("loadedmetadata", onMeta);
+    return () => a.removeEventListener("loadedmetadata", onMeta);
+  }, []);
 
   useEffect(() => {
     const a = audioRef.current;
