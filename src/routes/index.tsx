@@ -1,26 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { BottomNav, type TabKey } from "../components/BottomNav";
+import { WishesTab } from "../components/tabs/WishesTab";
+import { VideosTab } from "../components/tabs/VideosTab";
+import { VoiceNotesTab } from "../components/tabs/VoiceNotesTab";
+import { ForYouTab } from "../components/tabs/ForYouTab";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
+  const [tab, setTab] = useState<TabKey>("wishes");
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      {tab === "wishes" && <WishesTab />}
+      {/* Videos mounted always (when chosen) full-screen; render conditionally so audio resets */}
+      {tab === "videos" && <VideosTab visible={true} />}
+      {tab === "voice" && <VoiceNotesTab />}
+      {tab === "foryou" && <ForYouTab />}
+      <BottomNav active={tab} onChange={setTab} />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
