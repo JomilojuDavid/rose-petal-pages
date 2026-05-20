@@ -13,7 +13,7 @@ export type VideoClip = {
   name: string;
   avatar: string;
   src: string;
-  duration?: number; // seconds, optional fallback
+  duration?: number;
 };
 
 export type VoiceNote = {
@@ -21,7 +21,7 @@ export type VoiceNote = {
   name: string;
   avatar: string;
   src: string;
-  duration: string; // mm:ss
+  duration: string;
 };
 
 const av = (seed: string) =>
@@ -30,124 +30,49 @@ const av = (seed: string) =>
 export const WISHES: Wish[] = [
   {
     id: "w1",
-    name: "Mom",
-    handle: "@mom",
-    avatar: av("mom"),
+    name: "Jummy",
+    handle: "@jummy",
+    avatar: av("jummy"),
     message:
-      "Happy birthday, my darling girl. From the second you arrived, you made the whole world softer. I love you more than every sunrise I've ever seen.",
-    likes: 124,
+      "Happy birthday, my love. May this year wrap you in every soft thing you've prayed for — slow mornings, full laughter, and people who choose you on purpose. I love you endlessly.",
+    likes: 142,
     timeAgo: "2h",
   },
   {
     id: "w2",
-    name: "Sophia",
-    handle: "@sophiabells",
-    avatar: av("sophia"),
+    name: "Bolade",
+    handle: "@bolade",
+    avatar: av("bolade"),
     message:
-      "To the brightest soul I know — may this year be filled with golden mornings, slow coffees, and every dream you've quietly been holding onto. Love you endlessly. 🌷",
-    likes: 89,
-    timeAgo: "4h",
+      "To the kindest soul in my corner — happy birthday. Watching you grow into yourself has been one of the quiet privileges of my life. Cheers to a year that finally meets you where you are. 🌸",
+    likes: 98,
+    timeAgo: "5h",
   },
   {
     id: "w3",
-    name: "Daniel",
-    handle: "@dan.k",
-    avatar: av("daniel"),
+    name: "Kusibe",
+    handle: "@kusibe",
+    avatar: av("kusibe"),
     message:
-      "Another trip around the sun for the kindest person in the group chat. Cake is on me. Always.",
-    likes: 47,
-    timeAgo: "6h",
-  },
-  {
-    id: "w4",
-    name: "Aunt Rosa",
-    handle: "@rosa",
-    avatar: av("rosa"),
-    message:
-      "Wishing you a year as beautiful and stubborn as you are, my love. Hug your mother for me.",
-    likes: 31,
-    timeAgo: "8h",
-  },
-  {
-    id: "w5",
-    name: "Maya",
-    handle: "@mayaa",
-    avatar: av("maya"),
-    message:
-      "Best friend, soulmate, emergency contact — happy birthday to the person who has held my hand through every version of myself.",
-    likes: 212,
-    timeAgo: "10h",
-  },
-  {
-    id: "w6",
-    name: "Lucas",
-    handle: "@lucasr",
-    avatar: av("lucas"),
-    message:
-      "You make ordinary days feel like soft pink afternoons. Happy birthday. The world is luckier with you in it.",
-    likes: 64,
-    timeAgo: "12h",
+      "Another year of you in this world is another year of the rest of us being lucky. Happy birthday, darling. May God bless every door you walk through this year.",
+    likes: 76,
+    timeAgo: "9h",
   },
 ];
 
-// Public sample videos (Google's gtv-videos-bucket). Vertical-ish framing works in container.
 export const VIDEOS: VideoClip[] = [
-  {
-    id: "v1",
-    name: "Mom & Dad",
-    avatar: av("parents"),
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-  },
-  {
-    id: "v2",
-    name: "Maya",
-    avatar: av("maya"),
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-  },
-  {
-    id: "v3",
-    name: "The Squad",
-    avatar: av("squad"),
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-  },
-  {
-    id: "v4",
-    name: "Sophia",
-    avatar: av("sophia"),
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-  },
+  { id: "v1", name: "Anty Tolu", avatar: av("tolu"), src: "/media/Anty_Tolu.mp4" },
+  { id: "v2", name: "Anty Tope", avatar: av("tope"), src: "/media/Anty_Tope.mp4" },
+  { id: "v3", name: "Anty Yemi", avatar: av("yemi"), src: "/media/Anty_Yemi.mp4" },
+  { id: "v4", name: "Folasade", avatar: av("folasade"), src: "/media/Folasade.mp4" },
+  { id: "v5", name: "Idowu", avatar: av("idowu"), src: "/media/Idowu.mp4" },
+  { id: "v6", name: "Mummy Alvin", avatar: av("mummyalvin"), src: "/media/Mummy_Alvin.mp4" },
 ];
 
-// Public sample audio clips
 export const VOICE_NOTES: VoiceNote[] = [
-  {
-    id: "a1",
-    name: "Mom",
-    avatar: av("mom"),
-    src: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_8f60f8e7ad.mp3?filename=birthday-101218.mp3",
-    duration: "0:18",
-  },
-  {
-    id: "a2",
-    name: "Maya",
-    avatar: av("maya"),
-    src: "https://cdn.pixabay.com/download/audio/2021/10/19/audio_a0e0c5f2d4.mp3?filename=happy-birthday-to-you-9095.mp3",
-    duration: "0:24",
-  },
-  {
-    id: "a3",
-    name: "Sophia",
-    avatar: av("sophia"),
-    src: "https://cdn.pixabay.com/download/audio/2022/10/26/audio_31a4b2f0b7.mp3?filename=happy-birthday-125301.mp3",
-    duration: "0:22",
-  },
-  {
-    id: "a4",
-    name: "Daniel",
-    avatar: av("daniel"),
-    src: "https://cdn.pixabay.com/download/audio/2023/06/12/audio_d09d8ce4f7.mp3?filename=birthday-150935.mp3",
-    duration: "0:15",
-  },
+  { id: "a1", name: "Mom", avatar: av("mom"), src: "/media/Mummy.mp3", duration: "" },
+  { id: "a2", name: "Dad", avatar: av("dad"), src: "/media/Daddy.mp3", duration: "" },
+  { id: "a3", name: "Mercy Edebo", avatar: av("mercy"), src: "/media/Mercy_Edebo.mp3", duration: "" },
 ];
 
 export const EPISTLE = {
