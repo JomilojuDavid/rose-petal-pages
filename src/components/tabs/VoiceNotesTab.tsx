@@ -115,7 +115,7 @@ function VoiceBubble({
         </div>
 
         <span className="ml-1 shrink-0 text-xs font-medium tabular-nums text-white/90">
-          {note.duration}
+          {duration}
         </span>
         <audio ref={audioRef} src={note.src} preload="metadata" />
       </div>
